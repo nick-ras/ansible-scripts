@@ -5,12 +5,13 @@
     - name: update repo index
       apt:
         update_cache: yes
+      when: ansible_distribution == ["Debian", "Ubuntu"]
+
+    #apache runs on port 80
     - name: install apache2 package
       apt:
-        name: apache2
-        state: latest
-
-    - name: add php support for apache
-      apt:
-        name: libapache2-mod-php
-        state: latest
+        name:
+          - apache2
+          - libapache2-mod-php
+        state: absent
+      when: ansible_distribution == ["Debian", "Ubuntu"]
