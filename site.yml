@@ -1,0 +1,21 @@
+---
+- hosts: ubuntu_servers
+  become: true
+
+  tasks:
+    - name: install apache and php
+      package:
+        name:
+          - apache2
+          - php
+        update_cache: yes
+        state: latest
+      when: ansible_distribution ==  "Ubuntu"
+      tags: servers
+      register: apache
+
+    - name: install net-tools
+      package:
+        name:
+          - net-tools
+      when: apache.changed
