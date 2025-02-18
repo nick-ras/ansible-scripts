@@ -17,3 +17,24 @@ The playbooks in this repository are designed for automating server configuratio
 ├── install_apache.yml   # Playbook for installing and configuring Apache
 ├── remove_apache.yml    # Playbook for uninstalling Apache
 ├── site.yml             # Main playbook for running multiple tasks
+```
+# Ansible Automation Scripts
+
+This repository contains Ansible playbooks for managing Apache installations and configurations on remote servers.
+
+## Setup Instructions
+
+### Prerequisites
+Ensure you have:
+- **Ansible** installed (`pip install ansible` or `apt install ansible`)
+- **SSH access** to the remote servers
+- **Python** installed on the target machines
+
+### Configuring the Inventory
+Modify `inventory.ini` to define your target servers:
+
+```ini
+[webservers]
+server1.example.com
+server2.example.com
+
