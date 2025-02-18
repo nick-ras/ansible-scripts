@@ -37,4 +37,23 @@ Modify `inventory.ini` to define your target servers:
 [webservers]
 server1.example.com
 server2.example.com
+```
 
+### Running Playbooks
+**Ping Servers**
+Test connectivity with the inventory hosts:
+
+```bash
+ansible -i inventory.ini -m ping all
+```
+**Install Apache**
+Install and start Apache on all web servers:
+
+```bash
+ansible-playbook -i inventory.ini install_apache.yml
+```
+**Run Site Playbook**
+Execute multiple roles and configurations:
+```bash
+ansible-playbook -i inventory.ini site.yml
+```
